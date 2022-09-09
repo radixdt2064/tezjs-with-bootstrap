@@ -6,7 +6,7 @@ defineProps<{ data: any }>();
 <template>
  <TezLazy class="fixed top-0 bg-white w-full shadow-md z-50" :sourcePath="data.dynamicSourcePath" v-slot="source">
   <header class="mx-auto bg-white border-gray-200 py-2.5">
-<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+<nav class="navbar navbar-expand-lg rounded container navbar-light ">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
