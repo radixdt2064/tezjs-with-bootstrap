@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ArticleCard from "./article-card.vue"
+// import ArticleCard from "./article-card.vue"
 defineProps<{ data: any }>()
 
 </script>

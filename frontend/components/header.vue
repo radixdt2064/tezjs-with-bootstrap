@@ -5,66 +5,38 @@ defineProps<{ data: any }>();
 </script>
 <template>
  <TezLazy class="fixed top-0 bg-white w-full shadow-md z-50" :sourcePath="data.dynamicSourcePath" v-slot="source">
-  <header class="container mx-auto bg-white border-gray-200 py-2.5">
-<nav>
-  <div class=" flex flex-wrap justify-between items-center">
-   <tez-link to="/" title="Discover India" class="flex items-center font-bold text-2xl">Discover India</tez-link>
-    <input id="toggle" data-collapse-toggle="navbar-default" type="checkbox" class="group inline-flex items-center p-2 ml-3 text-sm text-gray-500 md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 toggle-menu invisible" aria-controls="navbar-default" aria-expanded="false">
-    <label for="toggle" class="inline-flex md:hidden">
-      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-      </label>  
-    
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="flex flex-col p-4 mt-4 bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
-        <li>
-         <tez-link
-                    v-bind:key="category.slug"
-                    :to="category.slug"
-                    v-for="category in source.items"
-                    class="
-                      block
-                      md:inline-block
-                      my-1
-                      text-sm
-                      leading-5
-                      text-gray-900
-                      transition-colors
-                      duration-200
-                      transform
-                      hover:text-indigo-600
-                      md:mx-4 md:my-0
-                      no-underline
-                    "
-                  >
-                    {{ category.name }}</tez-link
-                  >
-        </li>
-        <li class="!ml-0">
-         <tez-link
-                    to="/about-tezjs"
-                    title="About TezJS"
-                    class="
-                      block
-                      md:inline-block
-                      my-1
-                      text-sm
-                      leading-5
-                      text-gray-900
-                      transition-colors
-                      duration-200
-                      transform
-                      hover:text-indigo-600
-                      md:mx-2 md:my-0
-                      no-underline
-                    "
-                  >
-                  About TezJS
-                  </tez-link>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <header class="mx-auto bg-white border-gray-200 py-2.5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown09">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </nav>
 </header>
 </TezLazy>
 </template>
