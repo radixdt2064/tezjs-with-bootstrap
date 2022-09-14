@@ -11,7 +11,8 @@
       "type": "enumeration",
       "enum": [
         "Articles",
-        "Categories"
+        "Categories",
+        "Pages"
       ]
     },
     "ComponentName": {
