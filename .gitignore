@@ -1,6 +1,5 @@
 node_modules
 .tmp
 .cache
-public
 .tez
 build
