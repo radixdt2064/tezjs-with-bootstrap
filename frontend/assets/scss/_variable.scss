@@ -17,3 +17,11 @@
 // body {
 //     font-family: "Plus Jakarta Sans";
 //   }
+$primary: colors(green,base);
+$secondary: colors(blue, base);
+$ternary: colors(blue-1, base);
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "ternary": $ternary
+);

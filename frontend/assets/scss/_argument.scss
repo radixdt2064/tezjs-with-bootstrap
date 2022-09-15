@@ -1,0 +1,95 @@
+// color CSS start
+$palette: (
+    green: (
+        base:      #63BC5E,
+        base-100:  #48A343,
+        base-200:  #387E35,
+        base-300:  #285A25,
+        base-400:  #183516,
+        base-500:  #61BC5C,
+        base-600:  #84CA81,
+        base-700:  #A8DAA5,
+        base-800:  #CAE9C9,
+        base-900:  #EDF9ED,
+    ),
+    blue: (
+        base:   #6BC0E7,
+        base-100:  #1F91C5,
+        base-200:  #197199,
+        base-300:  #12526E,
+        base-400:  #0B3042,
+        base-500:  #39ABDF,
+        base-600:  #65BEE6,
+        base-700:  #91D1ED,
+        base-800:  #BEE3F5,
+        base-900:  #E9F6FC,
+    ),
+    blue-2: (
+        base:   #435B65,
+        base-100:  #46616A,
+        base-200:  #33464D,
+        base-300:  #20292E,
+        base-400:  #0A0E0F,
+        base-500:  #7696A3,
+        base-600:  #95ADB9,
+        base-700:  #B2C5CC,
+        base-800:  #D1DCE0,
+        base-900:  #EFF3F6,
+    ),
+    gray: (
+        base:   #CCCCCC,
+        base-100:  #999999,
+        base-200:  #666666,
+        base-300:  #333333,
+        base-400:  #000000
+    )
+);
+@function colors($color,$tone){
+    @if map-has-key($palette,$color){
+        $color: map-get($palette,$color);
+        @if map-has-key($color,$tone){
+            $tone: map-get($color,$tone);
+            @return $tone;
+        }
+        @warn "unknown tone `#{$tone}` in color";
+        @return null;        
+    }
+    @warn "unknown color `#{$color}` in palette";
+    @return null;
+}
+
+// linearGradient SCSS
+
+@function is-direction($value) {
+    $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+    $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  
+    @return $is-keyword or $is-angle;
+  }
+  @function legacy-direction($value) {
+    @if is-direction($value) == false {
+      @error "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be a direction.";
+    }
+  
+    $conversion-map: (
+      to top          : bottom,
+      to top right    : bottom left,
+      to right top    : left bottom,
+      to right        : left,
+      to bottom right : top left,
+      to right bottom : left top,
+      to bottom       : top,
+      to bottom left  : top right,
+      to left bottom  : right top,
+      to left         : right,
+      to left top     : right bottom,
+      to top left     : bottom right
+    );
+  
+    @if map-has-key($conversion-map, $value) {
+      @return map-get($conversion-map, $value);
+    }
+  
+    @return 90deg - $value;
+  }
+
